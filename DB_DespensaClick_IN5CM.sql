@@ -103,55 +103,53 @@ insert into Ventas (fecha_venta, cantidad, total, id_empleado, id_producto) valu
 
 -- Procedimiento almacenado Listar
 delimiter $$
-	create procedure sp_ListarProductos()
+	create procedure sp_ListarEmpleado()
     begin
-		select p.id_producto, p.nombre_producto, p.categoria_producto, p.precio_compra, p.precio_venta, pr.nombre_proveedor from Productos p
-        inner join Proveedores pr on p.id_proveedor = pr.id_proveedor;
+		select * from Empleados;
     end $$
 delimiter ;
 
 -- Procedimeinto almacenado Crear
 delimiter $$
-	create procedure sp_AgregarProducto(
+	create procedure sp_AgregarEmpleado(
 		in p_nombre varchar(60),
-        in p_categoria varchar(60),
-        in p_compra double,
-        in p_venta double,
-        in p_idProveedor int
+        in p_apellido varchar(60),
+        in p_puesto varchar(20),
+        in p_email varchar(100)
+	
     )
     begin
-		insert into Productos (nombre_producto, categoria_producto, precio_compra, precio_venta, id_proveedor)values
-        (p_nombre, p_categoria, p_compra, p_venta, p_idProveedor);
+		insert into Empleados (nombre_empleado, apellido_empleado, puesto_empleado, email_empleado)values
+        (p_nombre, p_apellido, p_puesto, p_email);
     end $$
 delimiter ;
 
 -- Procedimiento almacenado Actualizar
 delimiter $$
-	create procedure sp_ActualizarProducto(
-		in p_id int,
-        in p_nombre varchar(60),
-        in p_categoria varchar(60),
-        in p_compra double,
-        in p_venta double,
-        in p_idProveedor int
+	create procedure sp_ActualizarEmpleado(
+		in e_id int,
+        in e_nombre varchar(60),
+        in e_apellido varchar(60),
+        in e_puesto varchar(20), 
+		in e_email varchar(100)
     )
     begin
-		update Productos
-        set nombre_producto = p_nombre, 
-			categoria_producto = p_categoria,
-			precio_compra = p_compra,
-			precio_venta = p_venta,
-			id_proveedor = p_idProveedor
-        where id_producto = p_id;
+		update Empleados
+        set nombre_empleado = e_nombre, 
+			apellido_empleado = e_apellido, 
+			puesto_empleado = e_puesto, 
+			email_empleado = e_email 
+        where id_empleado = e_id;
     end $$
 delimiter ;
 
 -- Procedimiento almacenado Eliminar
 delimiter $$
-	create procedure sp_EliminarProducto(in p_id int)
+	create procedure sp_EliminarEmpleado(in e_id int)
     begin
-		delete from Productos where id_producto = p_id;
+		delete from Empleados where id_empleado = e_id;
     end $$
 delimiter ;
 
--- call sp_ListarProductos();
+
+call sp_ListarEmpleado();
