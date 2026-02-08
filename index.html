@@ -4,31 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Despensa Click</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        <h1>Bienvenido a Despensa Click</h1>
+        <h1>Bienvenido</h1>
     </header>
 
-    <nav>
-        <ul>
-            <h2>Menú de Navegación</h2>
-            <li><a href="index.html">Inicio</a></li>
-            <li>Productos</li>
-            <li>Contacto</li>
-        </ul>
-    </nav>
+    <div class="main-container">
+        
+        <aside class="sidebar"> 
+            <div class="logo-section">   
+                <h2>Despensa<span>Click</span></h2>
+            </div>
+            <nav class="menu">
+                <a href="#"><i class="icon">🏠</i> Dashboard</a>
+                <a href="#" class="active"><i class="icon">👥</i> Empleados</a>
+                <a href="#"><i class="icon">📦</i> Productos</a>
+                <a href="#"><i class="icon">🤝</i> Proveedores</a>
+            </nav>
+            <div class="user-section">
+                <p>Admin</p>
+                <a href="#" class="logout-btn">Cerrar sesión</a>
+            </div>
+        </aside>
 
-    <main>
-        <p>Tu tienda en línea de confianza.</p>
-        <p>Explora nuestra amplia gama de productos y disfruta de la comodidad de comprar desde casa.</p>
-    </main>
+        <section class="content-area">
+            <div class="header-main">
+                <h1>Panel de Administración</h1>
+                <p>Bienvenido a DespensaClick, gestiona tus empleados aquí.</p>
+            </div>
 
-    
-    <footer>
-        <p>&copy; 2026 - Todos los derechos reservados a Joel Archila y Despensa Click</p>
-    </footer>
+            <div class="table-container">
+                <div class="table-header">
+                    <h2>Lista de Personal</h2>
+                    <button class="btn-add">+ Nuevo Empleado</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Puesto</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Joel</td>
+                            <td>Archila</td>
+                            <td>Desarrollador</td>
+                            <td>jarchila-2022283@kinal.edu.gt</td>
+                            <td>
+                                <button class="edit-btn">✏️</button>
+                                <button class="delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <footer>
+                <p>&copy; 2026 - Todos los derechos reservados a Joel Archila y Despensa Click</p>
+            </footer>
+        </section>
+    </div>
+
 </body>
 </html>
